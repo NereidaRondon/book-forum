@@ -7,13 +7,16 @@ body {
 
 .App {
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 /* Navbar */
 .navbar {
   background-color: #333;
   color: white;
-  padding: 10px 20px;
+  padding: 10px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,11 +39,11 @@ body {
 
 /* Footer */
 .footer {
-  background-color: #f1f1f1;
+  background-color: #094b81;
+  color: white;
   text-align: center;
-  padding: 10px 0;
-  position: fixed;
-  bottom: 0;
+  margin-top: 3rem;
+  padding: 20px 0;
   width: 100%;
   font-size: 14px;
 }
@@ -129,10 +132,61 @@ body {
   text-decoration: underline;
 }
 
-/* Post List */
+/* Post List Container */
 .post-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
   margin: 20px auto;
-  max-width: 800px;
+  max-width: 1200px;
+  padding: 0 100px;
+}
+
+/* Adjust for larger screens */
+@media (min-width: 768px) {
+  .post-list {
+    grid-template-columns: 1fr 1fr; /* Two columns on large screens */
+  }
+}
+
+@media (min-width: 1200px) {
+  .post-list {
+    grid-template-columns: 1fr 1fr 1fr; /* Three columns on extra-large screens */
+  }
+}
+
+/* Post Card Styling */
+.post-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: left;
+}
+
+/* Post Card Content */
+.post-card h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.post-card p {
+  margin: 5px 0;
+  color: #555;
+}
+
+/* Post Link */
+.post-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.post-card a:hover {
+  text-decoration: underline;
 }
 
 /* Upvote Button */
@@ -157,7 +211,7 @@ body {
 
 /* SearchBar */
 .search-bar input {
-  width: 100%;
+  width: 70%;
   padding: 10px;
   margin: 15px 0;
   border: 1px solid #ddd;
