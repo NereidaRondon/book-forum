@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
-  color: #333;
+  color: #034285;
 }
 
 .App {
@@ -11,9 +11,12 @@ body {
   padding: 0;
 }
 
+.home-page {
+  margin: 1rem;
+}
 /* Navbar */
 .navbar {
-  background-color: #333;
+  background-color: #034285;
   color: white;
   padding: 10px;
   margin: 0 auto;
@@ -39,7 +42,7 @@ body {
 
 /* Footer */
 .footer {
-  background-color: #094b81;
+  background-color: #034285;
   color: white;
   text-align: center;
   margin-top: 3rem;
@@ -83,7 +86,7 @@ body {
 .comment-submit-btn {
   margin-top: 10px;
   padding: 5px 10px;
-  background-color: #007bff;
+  background-color: #094e97;
   color: white;
   border: none;
   border-radius: 5px;
@@ -129,7 +132,7 @@ body {
   border-radius: 5px;
   padding: 15px;
   margin: 10px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  filter: drop-shadow(1px 2px 6px rgba(0, 0, 0, 0.3));
 }
 
 .post-card h2 {
@@ -307,10 +310,36 @@ body {
   margin-top: 15px;
 }
 
-/* Style for small screens */
 @media (max-width: 768px) {
   .create-post {
     margin: 20px;
     padding: 15px;
   }
+}
+
+.sort-options {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-options select {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.delete-button {
+  padding: 10px 15px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.delete-button:hover {
+  background-color: #b02a37;
 }
