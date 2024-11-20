@@ -1,3 +1,6 @@
+:root {
+  background-color: #034285;
+}
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -354,6 +357,7 @@ scan {
 .save-button {
   background-color: #28a745;
   color: white;
+  margin: 3rem 1rem;
 }
 
 .save-button:hover {
@@ -363,8 +367,22 @@ scan {
 .cancel-button {
   background-color: #6c757d;
   color: white;
+  margin: 3rem 1rem;
 }
 
 .cancel-button:hover {
   background-color: #5a6268;
+}
+
+.post-edit label {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  align-content: start;
+  text-align: left;
+}
+
+.post-edit input,
+.post-edit textarea {
+  width: 90%;
 }

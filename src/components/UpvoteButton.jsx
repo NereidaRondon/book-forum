@@ -8,20 +8,33 @@ const supabase = createClient(
 function UpvoteButton({ postId, updateUpvoteCount }) {
   const handleUpvote = async () => {
     try {
-      const { data, error } = await supabase
+      // Fetch the current upvotes value
+      const { data: currentData, error: fetchError } = await supabase
         .from('posts')
-        .update({ upvotes: supabase.raw('upvotes + 1') })
+        .select('upvotes')
         .eq('id', postId)
-        .select();
+        .single();
 
-      if (error) {
-        console.error('Error updating upvotes:', error);
+      if (fetchError) {
+        console.error('Error fetching current upvotes:', fetchError);
         return;
       }
 
-      if (data && data.length > 0) {
-        updateUpvoteCount(data[0].upvotes);
+      const currentUpvotes = currentData?.upvotes || 0;
+
+      // Increment the upvotes in the database
+      const { error: updateError } = await supabase
+        .from('posts')
+        .update({ upvotes: currentUpvotes + 1 })
+        .eq('id', postId);
+
+      if (updateError) {
+        console.error('Error updating upvotes:', updateError);
+        return;
       }
+
+      // Update the upvote count in the UI
+      updateUpvoteCount(currentUpvotes + 1);
     } catch (error) {
       console.error('Error handling upvote:', error);
     }

@@ -72,7 +72,7 @@ function PostDetailPage() {
   return (
     <div className='post-detail'>
       {isEditing ? (
-        <div>
+        <div className='post-edit'>
           <label>Title:</label>
           <input
             type='text'
@@ -94,6 +94,7 @@ function PostDetailPage() {
             className='edit-input'
             placeholder='Image URL (optional)'
           />
+          <br />
           <button className='save-button' onClick={savePost}>
             Save
           </button>
@@ -103,7 +104,7 @@ function PostDetailPage() {
         </div>
       ) : (
         <>
-          <div>
+          <div className=''>
             <h2>{post.title}</h2>
             <p>{post.content}</p>
             {post.image_url && (
@@ -124,9 +125,9 @@ function PostDetailPage() {
           <button className='delete-button' onClick={deletePost}>
             Delete Post
           </button>
+          <CommentSection postId={id} />
         </>
       )}
-      <CommentSection postId={id} />
     </div>
   );
 }
