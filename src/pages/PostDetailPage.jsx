@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { useParams } from 'react-router-dom';
+import UpvoteButton from '../components/UpvoteButton';
 import CommentSection from '../components/CommentSection';
 
 const supabase = createClient(
@@ -24,25 +25,8 @@ function PostDetailPage() {
     fetchPost();
   }, [id]);
 
-  const handleUpvote = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('posts')
-        .update({ upvotes: supabase.raw('upvotes + 1') }) // Increment upvotes
-        .eq('id', id)
-        .select();
-
-      if (error) {
-        console.error('Error updating upvotes:', error);
-        return;
-      }
-
-      if (data && data.length > 0) {
-        setPost(data[0]);
-      }
-    } catch (error) {
-      console.error('Error handling upvote:', error);
-    }
+  const updateUpvoteCount = (newUpvoteCount) => {
+    setPost((prevPost) => ({ ...prevPost, upvotes: newUpvoteCount }));
   };
 
   if (!post) return <p>Loading...</p>;
@@ -53,9 +37,8 @@ function PostDetailPage() {
       <p>{post.content}</p>
       {post.image_url && <img src={post.image_url} alt={post.title} width={200} height={'auto'} />}
       <p>Upvotes: {post.upvotes}</p>
-      <button onClick={handleUpvote} className='upvote-button'>
-        Upvote
-      </button>
+      <UpvoteButton postId={id} updateUpvoteCount={updateUpvoteCount} />
+
       <CommentSection postId={id} />
     </div>
   );
