@@ -125,11 +125,14 @@ body {
   background-color: #811927;
 }
 
+scan {
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.9));
+}
 /* Post Card */
 .post-card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  background-color: #b9d3f0;
+  border: 1px solid #094e97;
+  border-radius: 10px;
   padding: 15px;
   margin: 10px 0;
   filter: drop-shadow(1px 2px 6px rgba(0, 0, 0, 0.3));
@@ -188,40 +191,6 @@ body {
   .post-list {
     grid-template-columns: 1fr 1fr 1fr; /* Three columns on extra-large screens */
   }
-}
-
-/* Post Card Styling */
-.post-card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  text-align: left;
-}
-
-/* Post Card Content */
-.post-card h2 {
-  margin-top: 0;
-  font-size: 1.5rem;
-  color: #333;
-}
-
-.post-card p {
-  margin: 5px 0;
-  color: #555;
-}
-
-/* Post Link */
-.post-card a {
-  display: inline-block;
-  margin-top: 10px;
-  color: #007bff;
-  text-decoration: none;
-}
-
-.post-card a:hover {
-  text-decoration: underline;
 }
 
 /* Upvote Button */
@@ -342,4 +311,60 @@ body {
 
 .delete-button:hover {
   background-color: #b02a37;
+}
+
+.edit-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.edit-textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.edit-button,
+.save-button,
+.cancel-button {
+  padding: 10px 15px;
+  font-size: 14px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-button {
+  background-color: #ffc107;
+  color: black;
+}
+
+.edit-button:hover {
+  background-color: #e0a800;
+}
+
+.save-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.save-button:hover {
+  background-color: #218838;
+}
+
+.cancel-button {
+  background-color: #6c757d;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #5a6268;
 }

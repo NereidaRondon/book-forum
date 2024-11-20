@@ -1,17 +1,15 @@
-import React from 'react';
-
-function PostCard({ post, onDelete }) {
+function PostCard({ post }) {
   return (
     <div className='post-card'>
       <h2>{post.title}</h2>
-      <p>Created At: {new Date(post.created_at).toLocaleString()}</p>
-      <p>Upvotes: {post.upvotes}</p>
+      <p>{new Date(post.created_at).toLocaleString()}</p>
+      <p>
+        Upvotes <scan>👍</scan>: {post.upvotes}
+      </p>
+      <br />
       <a href={`/post/${post.id}`} className='post-link'>
         View Details
       </a>
-      <button className='delete-button' onClick={() => onDelete(post.id)}>
-        Delete
-      </button>
     </div>
   );
 }

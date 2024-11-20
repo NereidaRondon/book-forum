@@ -1,3 +1,4 @@
+//
 import PostCard from './PostCard';
 
 function PostList({ posts, onDelete }) {

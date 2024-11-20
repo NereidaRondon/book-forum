@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import PostList from '../components/PostList';
 import SearchBar from '../components/SearchBar';
 import { createClient } from '@supabase/supabase-js';
@@ -29,15 +29,6 @@ function HomePage() {
     fetchPosts();
   }, [sortBy]);
 
-  const handleDelete = async (id) => {
-    const { error } = await supabase.from('posts').delete().eq('id', id);
-    if (error) {
-      console.error('Error deleting post:', error);
-    } else {
-      setPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
-    }
-  };
-
   const filteredPosts = posts.filter((post) =>
     post.title.toLowerCase().includes(query.toLowerCase())
   );
@@ -54,7 +45,7 @@ function HomePage() {
           <option value='upvotes'>Upvotes</option>
         </select>
       </div>
-      <PostList posts={filteredPosts} onDelete={handleDelete} />
+      <PostList posts={filteredPosts} />
     </div>
   );
 }
